@@ -12,7 +12,7 @@ pipeline {
             }
 
             parallel {
-                stage('Branch master') {
+                stage('master') {
                     agent {
                         label "master"
                     }
@@ -20,7 +20,7 @@ pipeline {
                         echo "On Branch A"
                     }
                 }
-                stage('Branch aliyun') {
+                stage('aliyun') {
                     agent {
                         label "aliyun"
                     }
