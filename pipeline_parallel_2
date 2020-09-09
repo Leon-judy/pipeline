@@ -1,0 +1,33 @@
+pipeline{
+    agent none
+        stages {
+            stage('先执行的 Stage ') {
+                steps {
+                    echo 'This stage will be executed first.'
+                }
+            }
+            stage('Parallel Stage') {
+                parallel {
+                    stage('Branch A') {
+                        agent {
+                            label "master"
+                        }
+                        steps {
+                            echo "On Branch A"
+                        }
+                    }
+                    stage('Branch B') {
+                        agent {
+                            label "aliyun"
+                        }
+                        steps {
+                            echo "On Branch B"
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+}
