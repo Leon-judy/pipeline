@@ -10,9 +10,9 @@ pipeline {
             when {
                 branch 'master'
             }
-            failFast true
+
             parallel {
-                stage('Branch A') {
+                stage('Branch master') {
                     agent {
                         label "master"
                     }
@@ -20,7 +20,7 @@ pipeline {
                         echo "On Branch A"
                     }
                 }
-                stage('Branch B') {
+                stage('Branch aliyun') {
                     agent {
                         label "aliyun"
                     }
